@@ -4,282 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="五百藏康平のポートフォリオサイト - 逸般の誤家庭系インフラエンジニア">
-    <title>五百藏康平 - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-color: #1f2937;
-            --text-light: #6b7280;
-            --bg-color: #ffffff;
-            --bg-secondary: #f9fafb;
-            --border-color: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-color);
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-            font-weight: 300;
-        }
-
-        main {
-            padding: 2rem;
-        }
-
-        section {
-            margin-bottom: 2.5rem;
-            animation: slideIn 0.6s ease-out;
-            animation-fill-mode: both;
-        }
-
-        section:nth-child(1) { animation-delay: 0.1s; }
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
-        section:nth-child(5) { animation-delay: 0.5s; }
-        section:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--accent-color);
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        p {
-            color: var(--text-color);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .intro-text {
-            font-size: 1.05rem;
-            text-align: justify;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .placeholder {
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            color: var(--text-light);
-            font-style: italic;
-            border: 2px dashed var(--border-color);
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-link:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .contact-link::before {
-            content: '✉';
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        footer {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem 0.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1.1rem;
-            }
-
-            header {
-                padding: 2rem 1.5rem;
-            }
-
-            main {
-                padding: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .intro-text {
-                font-size: 1rem;
-                padding: 1rem;
-            }
-
-            section {
-                margin-bottom: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 1.35rem;
-            }
-
-            main {
-                padding: 1rem;
-            }
-
-            .contact-link {
-                padding: 0.875rem 1.5rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <title>五百藏 康平 - ポートフォリオ</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>五百藏康平</h1>
+            <h1>五百藏 康平</h1>
             <p class="subtitle">逸般の誤家庭系インフラエンジニア</p>
         </header>
 
@@ -294,38 +25,81 @@
 
             <section id="certifications">
                 <h2>資格</h2>
-                <div class="placeholder">
-                    詳細は後ほど編集予定です
-                </div>
+                <h3>ITパスポート試験 第IP-2016-03-02132号</h3>
+                <h3>イータイピング・マスター 2級 第0029148号</h3>
             </section>
 
             <section id="career">
                 <h2>来歴</h2>
-                <div class="placeholder">
-                    詳細は後ほど編集予定です
-                </div>
+                <ul>
+                    <li>
+                        <span class="left">2016年 4月</span>
+                        <span>ITパスポート取得</span>
+                    </li>
+                    <li>
+                        <span class="left">2017年 4月</span>
+                        <span>学校法人角川ドワンゴ学園 N高等学校 入学</span>
+                    </li>
+                    <li>
+                        <span class="left">2018年 12月</span>
+                        <span>イー・タイピング検定2級取得</span>
+                    </li>
+                    <li>
+                        <span class="left">2020年 3月</span>
+                        <span>学校法人角川ドワンゴ学園 N高等学校 卒業</span>
+                    </li>
+                    <li>
+                        <span class="left">2022年 4月</span>
+                        <span>東京通信大学 情報マネジメント学部 情報マネジメント学科 IT・情報システム+WEBプログラミングコース入学</span>
+                    </li>
+                    <li>
+                        <span class="left">2023年 4月</span>
+                        <span>
+                            株式会社船井総研デジタル 入社 クラウドソリューション事業本部に配属<br>
+                            同時期に入社した<a href="https://qiita.com/hidekko">@hidekko</a>によってインフラ沼へ引きずり込まれる<br>
+                            東京通信大学 中退
+                        </span>
+                    </li>
+                    <li>
+                        <span class="left">2024年 4月</span>
+                        <span>株式会社船井総研デジタルから株式会社船井総合研究所へ転籍</span>
+                    </li>
+                    <li>
+                        <span class="left">2025年 9月</span>
+                        <span>株式会社船井総合研究所 退社</span>
+                    </li>
+                    <li>
+                        <span class="left">2025年   10月</span>
+                        <span>？？？ 入社</span>
+                    </li>
+                </ul>
             </section>
 
             <section id="accounts">
                 <h2>関連アカウント</h2>
-                <div class="placeholder">
-                    詳細は後ほど編集予定です
+                <div class="accounts-list">
+                    <a href="https://qiita.com/kouhei-ioroi" target="_blank" rel="noopener" >
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/qiita.svg" alt="Qiita" class="account-link">
+                        Qiita
+                    </a>
+                    <br>
+                    <a href="https://github.com/kouhei-ioroi" target="_blank" rel="noopener" >
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="account-link">
+                        GitHub
+                    </a>
                 </div>
             </section>
 
             <section id="contact">
                 <h2>連絡先</h2>
                 <div class="placeholder">
-                    <a href="mailto:" class="contact-link">メールを送る</a>
-                    <p style="margin-top: 1rem; font-style: normal; color: var(--text-light);">
-                        ※メールアドレスは後ほど設定予定です
-                    </p>
+                    <a href="mailto:fromgithubpages.kouhei@dispo.ioroi.group" class="contact-link">メール</a>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2024 五百藏康平. All rights reserved.</p>
+            <p>&copy; 2025 五百藏康平. All rights reserved.</p>
         </footer>
     </div>
 </body>
